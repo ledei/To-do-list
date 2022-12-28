@@ -21,18 +21,31 @@ inputSearch.addEventListener("keypress", (e) => {
 
 function handleAddBtnClick() {
   getTodoInfo();
+  initializeListItem();
+}
+
+function initializeListItem() {
   let li = createTodoListItem(todo);
   let deleteBtn = new DeleteBtn(li, todoList, todo);
   todoContainer.appendChild(li);
   deleteBtn.attachTo(li);
 }
 
+function deadlineValueChecker(input) {
+  let checker = input.value;
+  if (checker == "") {
+    console.log("hej");
+    todo.endDate = "Deadline wasnt set";
+  } else {
+    todo.setDeadlineIn(parseInt(checker));
+  }
+}
+
 function getTodoInfo() {
   todo = new TodoItem();
   todo.title = inputTitle.value;
   todo.content = inputDescription.value;
-  todo.setDeadlineIn(parseInt(inputDeadline.value));
-  console.log(parseInt(inputDeadline.value));
+  deadlineValueChecker(inputDeadline);
   todoList.addTodoItem(todo);
 }
 
