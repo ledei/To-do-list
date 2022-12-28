@@ -31,7 +31,8 @@ function getTodoInfo() {
   todo = new TodoItem();
   todo.title = inputTitle.value;
   todo.content = inputDescription.value;
-  todo.setDeadlineIn(inputDeadline);
+  todo.setDeadlineIn(parseInt(inputDeadline.value));
+  console.log(parseInt(inputDeadline.value));
   todoList.addTodoItem(todo);
 }
 
