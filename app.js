@@ -21,6 +21,10 @@ inputSearch.addEventListener("keypress", (e) => {
 
 function handleAddBtnClick() {
   getTodoInfo();
+  initializeListItem();
+}
+
+function initializeListItem() {
   let li = createTodoListItem(todo);
   let deleteBtn = new DeleteBtn(li, todoList, todo);
   todoContainer.appendChild(li);
@@ -42,7 +46,6 @@ function getTodoInfo() {
   todo.title = inputTitle.value;
   todo.content = inputDescription.value;
   deadlineValueChecker(inputDeadline);
-
   todoList.addTodoItem(todo);
 }
 
