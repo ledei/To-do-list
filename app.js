@@ -27,11 +27,22 @@ function handleAddBtnClick() {
   deleteBtn.attachTo(li);
 }
 
+function deadlineValueChecker(input) {
+  let checker = input.value;
+  if (checker == "") {
+    console.log("hej");
+    todo.endDate = "Deadline wasnt set";
+  } else {
+    todo.setDeadlineIn(parseInt(checker));
+  }
+}
+
 function getTodoInfo() {
   todo = new TodoItem();
   todo.title = inputTitle.value;
   todo.content = inputDescription.value;
-  todo.setDeadlineIn(parseInt(inputDeadline.value));
+  deadlineValueChecker(inputDeadline);
+
   todoList.addTodoItem(todo);
 }
 
