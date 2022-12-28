@@ -5,9 +5,9 @@ class TodoItem {
     this.startDate = new Date().toLocaleString();
   }
 
-  //   setDeadline(endDate) {
-  //     this.endDate = endDate;
-  //   }
+  setDeadline(endDate) {
+    this.endDate = endDate;
+  }
 
   setDeadlineIn(days) {
     let date = new Date();
