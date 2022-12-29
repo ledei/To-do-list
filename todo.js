@@ -91,6 +91,7 @@ class CloseBtn {
 
   handleClick() {
     popUpContainer.removeChild(this.remove);
+    popUpContainer.classList.add("hide");
   }
 
   attachTo(element) {

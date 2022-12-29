@@ -16,11 +16,7 @@ addBtn.addEventListener("click", handleAddBtnClick);
 inputSearch.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     getPopUpInfo();
-    let section = createPopUp(popUp);
-    popUpContainer.appendChild(section);
-    let closeBtn = new CloseBtn(section, popUpContainer);
-    closeBtn.attachTo(section);
-    deleteBtn.attachTo(section);
+    initializePopUp();
   }
 });
 function getPopUpInfo() {
@@ -35,6 +31,15 @@ function getPopUpInfo() {
 function handleAddBtnClick() {
   getTodoInfo();
   initializeListItem();
+}
+
+function initializePopUp() {
+  let section = createPopUp(popUp);
+  popUpContainer.appendChild(section);
+  let closeBtn = new CloseBtn(section, popUpContainer);
+  closeBtn.attachTo(section);
+  deleteBtn.attachTo(section);
+  popUpContainer.classList.remove("hide");
 }
 
 function initializeListItem() {
