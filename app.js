@@ -13,9 +13,6 @@ addBtn.addEventListener("click", handleAddBtnClick);
 inputSearch.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     searchedTodos = todoList.getTodosByTitle(inputSearch.value);
-    console.log(todoList.printTitles());
-    console.log(searchedTodos);
-    console.log(todo.startDate);
   }
 });
 

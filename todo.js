@@ -62,13 +62,37 @@ class DeleteBtn {
     this.todoList.todos.splice(index, 1);
   }
 
-  attachTo(container) {
+  attachTo(element) {
     let tempDiv = document.createElement("div");
     tempDiv.innerHTML = this.render();
 
     let el = tempDiv.firstElementChild;
 
     el.addEventListener("click", this.handleClick.bind(this));
+
+    element.appendChild(el);
+  }
+}
+
+class PopUp {
+  constructor(title, content, startDate, endDate) {
+    this.title = title;
+    this.content = content;
+    this.startDate = startDate;
+    this.endDate = endDate;
+  }
+
+  render() {
+    return `<h3>${todo.title}</h3>
+    <p>${todo.content}</p>
+    <p>${todo.startDate} - ${todo.endDate}</p>`;
+  }
+
+  attachTo(container) {
+    let tempDiv = document.createElement("div");
+    tempDiv.innerHTML = this.render();
+
+    let el = tempDiv.firstElementChild;
 
     container.appendChild(el);
   }
