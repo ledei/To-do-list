@@ -28,11 +28,6 @@ class TodoList {
     this.todos.push(todoItem);
   }
 
-  printTitles() {
-    console.log(`There are ${this.todos.length} entries in the todo list`);
-    this.todos.forEach((todo) => console.log(todo.title));
-  }
-
   getTodosByTitle(titleQuery) {
     let results = this.todos.find((todo) => todo.title.includes(titleQuery));
 
@@ -45,11 +40,12 @@ class TodoList {
 }
 
 class DeleteBtn {
-  constructor(remove, todoList, todoItem) {
+  constructor(remove, todoList, todoItem, container) {
     this.text = "Remove from list";
     this.remove = remove;
     this.todoList = todoList;
     this.todoItem = todoItem;
+    this.container = container;
   }
 
   render() {
@@ -57,10 +53,9 @@ class DeleteBtn {
   }
 
   handleClick() {
-    todoContainer.removeChild(this.remove);
+    this.container.removeChild(this.remove);
     let index = this.todoList.todos.indexOf(this.todoItem);
     this.todoList.todos.splice(index, 1);
-    console.log("hej");
   }
 
   attachTo(element) {
@@ -82,19 +77,32 @@ class PopUp {
     this.startDate = "startDate";
     this.endDate = "endDate";
   }
+}
+
+class CloseBtn {
+  constructor(remove) {
+    this.text = "Close";
+    this.remove = remove;
+  }
 
   render() {
-    return `<h3>${this.title}</h3>
-    <p>${this.content}</p>
-    <p>${this.startDate} - ${this.endDate}</p>`;
+    return `<button class="close-btn">${this.text}</button>`;
   }
 
-  attachTo(container) {
-    let tempDiv = document.createElement("section");
+  handleClick() {
+    popUpContainer.removeChild(this.remove);
+  }
+
+  attachTo(element) {
+    let tempDiv = document.createElement("div");
     tempDiv.innerHTML = this.render();
 
-    let el = tempDiv;
+    let el = tempDiv.firstElementChild;
 
-    container.appendChild(el);
+    el.addEventListener("click", this.handleClick.bind(this));
+
+    element.appendChild(el);
   }
 }
+
+// title, content, startDate, endDate
