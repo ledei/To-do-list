@@ -60,6 +60,7 @@ class DeleteBtn {
     todoContainer.removeChild(this.remove);
     let index = this.todoList.todos.indexOf(this.todoItem);
     this.todoList.todos.splice(index, 1);
+    console.log("hej");
   }
 
   attachTo(element) {
@@ -75,24 +76,24 @@ class DeleteBtn {
 }
 
 class PopUp {
-  constructor(title, content, startDate, endDate) {
-    this.title = title;
-    this.content = content;
-    this.startDate = startDate;
-    this.endDate = endDate;
+  constructor() {
+    this.title = "title";
+    this.content = "content";
+    this.startDate = "startDate";
+    this.endDate = "endDate";
   }
 
   render() {
-    return `<h3>${todo.title}</h3>
-    <p>${todo.content}</p>
-    <p>${todo.startDate} - ${todo.endDate}</p>`;
+    return `<h3>${this.title}</h3>
+    <p>${this.content}</p>
+    <p>${this.startDate} - ${this.endDate}</p>`;
   }
 
   attachTo(container) {
-    let tempDiv = document.createElement("div");
+    let tempDiv = document.createElement("section");
     tempDiv.innerHTML = this.render();
 
-    let el = tempDiv.firstElementChild;
+    let el = tempDiv;
 
     container.appendChild(el);
   }
