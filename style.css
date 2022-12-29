@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.pop-up-container{
+    color: white;
+}
+
 body{
     background-color: #000014;
 
@@ -22,6 +26,7 @@ body{
 }
 
 .fade{
+    
     position: absolute;
     width: 100%;
     height: 150%;
