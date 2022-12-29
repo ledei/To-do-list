@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+text-align: center;
+}
+
+.main-wrapper{
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 2em;
+}
+
+.input-container{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    height: 20em;
+    border-radius: 1em;
+    justify-content: center;
+    
+}
+
+.search,
+.deadline{
+    margin: 1em ;
+}
+
+.add-btn,
+.todo-container li button{
+    width: 40%;
+    align-self: center;
+    border-radius: 9999999px;
+    border: none;
+}
+
+.desc-wrapper{
+    margin: 1em;
+    display: flex;
+    gap: 0.5em;
+}
+
+.title,
+.description,
+.search,
+.deadline,
+.add-btn{
+    font-size: 1em;
+    padding: .5em 1em;
+}
+
+
+
+.todo-container{
+    width: 50%;
+border: 1px solid black;
+display: flex;
+flex-direction: column;
+gap: 1em;
+justify-content: center;
+margin: 2em;
+}
+
+.todo-container li{
+    border: 1px solid black;
+    border-radius: 1em;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    
+    }
+
+    .todo-container li h3,
+    .todo-container li p,
+    .todo-container li button{
+        margin: .2em;
+    }
+
+    .todo-container li h3{
+        font-size: 3rem;
+    }
+    .todo-container li button{
+        margin-bottom: 1em;
+    }
+
+
