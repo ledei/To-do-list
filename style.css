@@ -3,8 +3,33 @@
     padding: 0;
 }
 
+.hide{
+    display: none;
+}
+
 .pop-up-container{
+    top: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.699);
+    height: 100vh;
+    width: 100%;
+    
+}
+
+.pop-up-container section{
+    text-align: center;
     color: white;
+    width: 20%;
+    height: 20%;
+    margin: 20em auto;
+    background-color: #0D2236;
+    border-radius: 1em;
+    font-size: 1.2rem;
+}
+
+.pop-up-container section button{
+margin-top: 1em;
+padding: 0.5em;
 }
 
 body{
@@ -70,7 +95,8 @@ text-align: center;
 }
 
 .add-btn,
-.todo-container li button{
+.delete-btn,
+.close-btn{
     width: 40%;
     align-self: center;
     border-radius: 9999999px;
@@ -120,15 +146,20 @@ margin: 2em;
     }
 
     .todo-container li h3,
+    .pop-up-container section h3,
     .todo-container li p,
-    .todo-container li button{
+    .pop-up-container section p,
+    .delete-btn,
+    .close-btn{
         margin: .2em;
     }
 
-    .todo-container li h3{
+    .todo-container li h3,
+    .pop-up-container section h3{
         font-size: 3rem;
     }
-    .todo-container li button{
+    .delete-btn,
+    .close-btn{
         margin-bottom: 1em;
     }
 
