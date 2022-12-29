@@ -34,7 +34,6 @@ function initializeListItem() {
 function deadlineValueChecker(input) {
   let checker = input.value;
   if (checker == "") {
-    console.log("hej");
     todo.endDate = "Deadline wasnt set";
   } else {
     todo.setDeadlineIn(parseInt(checker));
@@ -59,5 +58,3 @@ function createTodoListItem(todo) {
 
   return li;
 }
-
-// let searchedTodos = todoList.getTodosByTitle("test"); // [{title: "Bake pan...", content: "Promised my..."}]
