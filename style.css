@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.hide{
+    display: none;
+}
+
+.pop-up-container{
+    top: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.699);
+    height: 100vh;
+    width: 100%;
+    
+}
+
+.pop-up-container section{
+    text-align: center;
+    color: white;
+    width: 20%;
+    height: 20%;
+    margin: 20em auto;
+    background-color: #0D2236;
+    border-radius: 1em;
+    font-size: 1.2rem;
+}
+
+.pop-up-container section button{
+margin-top: 1em;
+padding: 0.5em;
+}
+
+body{
+    background-color: #000014;
+
+}
+
+.background-container{
+
+    position: relative;
+}
+
+.background-img{
+    display: block;
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.fade{
+    
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    bottom: 0;
+    background: rgb(1,0,16);
+background: linear-gradient(180deg, rgba(1,0,16,0.5634628851540616) 0%, rgba(0,0,20,1) 100%);
+}
+
+header{
+color: aliceblue;
+text-align: center;
+
+}
+
+.main-wrapper{
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 2em;
+    background-color: #0D2236;
+}
+
+.input-container{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    height: 20em;
+    border-radius: 1em;
+    justify-content: center;
+    background-color: #0D2236;
+    
+    box-shadow: 0 0 0.5em whitesmoke;
+}
+
+.search,
+.deadline{
+    margin: 1em ;
+}
+
+.add-btn,
+.delete-btn,
+.close-btn{
+    width: 40%;
+    align-self: center;
+    border-radius: 9999999px;
+    border: none;
+}
+
+.desc-wrapper{
+    margin: 1em;
+    display: flex;
+    gap: 0.5em;
+}
+
+.title,
+.description,
+.search,
+.deadline,
+.add-btn{
+    color: black;
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 9999999px;
+    border: none;
+    background: white;
+}
+
+
+
+.todo-container{
+    width: 50%;
+display: flex;
+flex-direction: column;
+gap: 1em;
+justify-content: center;
+margin: 2em;
+}
+
+.todo-container li{
+    box-shadow: 0 0 0.5em whitesmoke;
+    border-radius: 1em;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    background-color: #0D2236;
+    color: white;
+    }
+
+    .todo-container li h3,
+    .pop-up-container section h3,
+    .todo-container li p,
+    .pop-up-container section p,
+    .delete-btn,
+    .close-btn{
+        margin: .2em;
+    }
+
+    .todo-container li h3,
+    .pop-up-container section h3{
+        font-size: 3rem;
+    }
+    .delete-btn,
+    .close-btn{
+        margin-bottom: 1em;
+    }
+
+

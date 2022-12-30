@@ -5,9 +5,9 @@ class TodoItem {
     this.startDate = new Date().toLocaleString();
   }
 
-  //   setDeadline(endDate) {
-  //     this.endDate = endDate;
-  //   }
+  setDeadline(endDate) {
+    this.endDate = endDate;
+  }
 
   setDeadlineIn(days) {
     let date = new Date();
@@ -28,11 +28,6 @@ class TodoList {
     this.todos.push(todoItem);
   }
 
-  printTitles() {
-    console.log(`There are ${this.todos.length} entries in the todo list`);
-    this.todos.forEach((todo) => console.log(todo.title));
-  }
-
   getTodosByTitle(titleQuery) {
     let results = this.todos.find((todo) => todo.title.includes(titleQuery));
 
@@ -45,11 +40,12 @@ class TodoList {
 }
 
 class DeleteBtn {
-  constructor(remove, todoList, todoItem) {
+  constructor(remove, todoList, todoItem, container) {
     this.text = "Remove from list";
     this.remove = remove;
     this.todoList = todoList;
     this.todoItem = todoItem;
+    this.container = container;
   }
 
   render() {
@@ -57,12 +53,12 @@ class DeleteBtn {
   }
 
   handleClick() {
-    todoContainer.removeChild(this.remove);
+    this.container.removeChild(this.remove);
     let index = this.todoList.todos.indexOf(this.todoItem);
     this.todoList.todos.splice(index, 1);
   }
 
-  attachTo(container) {
+  attachTo(element) {
     let tempDiv = document.createElement("div");
     tempDiv.innerHTML = this.render();
 
@@ -70,6 +66,44 @@ class DeleteBtn {
 
     el.addEventListener("click", this.handleClick.bind(this));
 
-    container.appendChild(el);
+    element.appendChild(el);
   }
 }
+
+class PopUp {
+  constructor() {
+    this.title = "title";
+    this.content = "content";
+    this.startDate = "startDate";
+    this.endDate = "endDate";
+  }
+}
+
+class CloseBtn {
+  constructor(remove) {
+    this.text = "Close";
+    this.remove = remove;
+  }
+
+  render() {
+    return `<button class="close-btn">${this.text}</button>`;
+  }
+
+  handleClick() {
+    popUpContainer.removeChild(this.remove);
+    popUpContainer.classList.add("hide");
+  }
+
+  attachTo(element) {
+    let tempDiv = document.createElement("div");
+    tempDiv.innerHTML = this.render();
+
+    let el = tempDiv.firstElementChild;
+
+    el.addEventListener("click", this.handleClick.bind(this));
+
+    element.appendChild(el);
+  }
+}
+
+// title, content, startDate, endDate

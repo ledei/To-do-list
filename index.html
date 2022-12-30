@@ -8,20 +8,34 @@
 
     <script src="todo.js"></script>
     <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <input type="text" class="search" placeholder="Search your list" />
-    <div>
-      <input type="text" class="title" placeholder="What to do" />
-      <input type="text" class="description" placeholder="Describe" />
-      <!-- <input
-        type="text"
-        class="deadlibe"
-        placeholder="How many days until deadline" /> -->
-      <button class="add-btn">Add to To-do-list</button>
-    </div>
-    <ul class="todo-container">
+    <figure class="background-container">
+      <img
+        class="background-img"
+        src="assets/vecteezyFirework-Backgroundfv0421_generated.jpg"
+        alt="vecteezyFirework-Backgroundfv0421_generated" />
+      <div class="fade"></div>
+    </figure>
+    <header>
       <h1>My To-do-list</h1>
-    </ul>
+    </header>
+    <main class="main-wrapper">
+      <div class="input-container">
+        <input type="text" class="search" placeholder="Search your list" />
+        <div class="desc-wrapper">
+          <input type="text" class="title" placeholder="What to do" />
+          <input type="text" class="description" placeholder="Describe" />
+        </div>
+        <input
+          type="number"
+          class="deadline"
+          placeholder="How many days until deadline" />
+        <button class="add-btn">Add to To-do-list</button>
+      </div>
+      <ul class="todo-container"></ul>
+    </main>
+    <div class="pop-up-container hide"></div>
   </body>
 </html>
