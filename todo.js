@@ -26,6 +26,10 @@ class TodoItem {
 
   handleClick() {
     this.modalElement.remove();
+
+    let index = todoList.todos.indexOf(todo);
+    todoList.todos.splice(index, 1);
+    console.log(todoList);
   }
 
   attachTo(container) {
