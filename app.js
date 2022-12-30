@@ -38,7 +38,6 @@ function initializePopUp() {
   popUpContainer.appendChild(section);
   let closeBtn = new CloseBtn(section, popUpContainer);
   closeBtn.attachTo(section);
-  deleteBtn.attachTo(section);
   popUpContainer.classList.remove("hide");
 }
 
