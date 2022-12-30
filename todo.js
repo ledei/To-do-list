@@ -5,8 +5,32 @@ class TodoItem {
     this.startDate = new Date().toLocaleString();
   }
 
-  setDeadline(endDate) {
-    this.endDate = endDate;
+  render() {
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <li>
+      <h3>${this.title}</h3>
+        <p>${this.content}</p>
+        <p>${this.startDate} - ${this.endDate}</p>
+        <button class = "delete-btn">Remove from list</button>
+    </li>
+      `;
+
+    let el = div.firstElementChild;
+    let deleteBtn = div.querySelector(".delete-btn");
+
+    deleteBtn.addEventListener("click", () => this.handleClick());
+
+    return el;
+  }
+
+  handleClick() {
+    this.modalElement.remove();
+  }
+
+  attachTo(container) {
+    this.modalElement = this.render();
+    container.append(this.modalElement);
   }
 
   setDeadlineIn(days) {
@@ -39,37 +63,6 @@ class TodoList {
   }
 }
 
-class DeleteBtn {
-  constructor(remove, todoList, todoItem, container) {
-    this.text = "Remove from list";
-    this.remove = remove;
-    this.todoList = todoList;
-    this.todoItem = todoItem;
-    this.container = container;
-  }
-
-  render() {
-    return `<button class="delete-btn">${this.text}</button>`;
-  }
-
-  handleClick() {
-    this.container.removeChild(this.remove);
-    let index = this.todoList.todos.indexOf(this.todoItem);
-    this.todoList.todos.splice(index, 1);
-  }
-
-  attachTo(element) {
-    let tempDiv = document.createElement("div");
-    tempDiv.innerHTML = this.render();
-
-    let el = tempDiv.firstElementChild;
-
-    el.addEventListener("click", this.handleClick.bind(this));
-
-    element.appendChild(el);
-  }
-}
-
 class PopUp {
   constructor() {
     this.title = "title";
@@ -77,32 +70,35 @@ class PopUp {
     this.startDate = "startDate";
     this.endDate = "endDate";
   }
-}
-
-class CloseBtn {
-  constructor(remove) {
-    this.text = "Close";
-    this.remove = remove;
-  }
 
   render() {
-    return `<button class="close-btn">${this.text}</button>`;
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <div class = "pop-up-container" >
+      <section>
+        <h3>${this.title}</h3>
+          <p>${this.content}</p>
+          <p>${this.startDate} - ${this.endDate}</p>
+          <button class = "close-btn">Close</button>
+      </section>
+    </div>
+      `;
+
+    let el = div.firstElementChild;
+    let deleteBtn = div.querySelector(".close-btn");
+
+    deleteBtn.addEventListener("click", () => this.handleClick());
+
+    return el;
   }
 
   handleClick() {
-    popUpContainer.removeChild(this.remove);
-    popUpContainer.classList.add("hide");
+    this.modalElement.remove();
   }
 
-  attachTo(element) {
-    let tempDiv = document.createElement("div");
-    tempDiv.innerHTML = this.render();
-
-    let el = tempDiv.firstElementChild;
-
-    el.addEventListener("click", this.handleClick.bind(this));
-
-    element.appendChild(el);
+  attachTo(container) {
+    this.modalElement = this.render();
+    container.append(this.modalElement);
   }
 }
 
