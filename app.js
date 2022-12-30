@@ -24,6 +24,7 @@ function handleAddBtnClick() {
   deadlineValueChecker(inputDeadline);
   todoList.addTodoItem(todo);
   todo.attachTo(todoContainer);
+  todo.grabIndexPosition(todo);
 }
 
 function handleSearchKeypress() {

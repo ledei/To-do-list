@@ -1,3 +1,47 @@
+class PopUp {
+  constructor() {
+    this.title = "title";
+    this.content = "content";
+    this.startDate = "startDate";
+    this.endDate = "endDate";
+  }
+
+  render() {
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <div class = "pop-up-container" >
+      <section>
+        <h3>${this.title}</h3>
+          <p>${this.content}</p>
+          <p>${this.startDate} - ${this.endDate}</p>
+          <button class = "close-btn">Close</button>
+
+      </section>
+    </div>
+      `;
+
+    let el = div.firstElementChild;
+    let closeBtn = div.querySelector(".close-btn");
+
+    closeBtn.addEventListener("click", () => this.handleCloseBtnClick());
+
+    return el;
+  }
+
+  grabIndexPosition(todoItem) {
+    this.todoItem = todoItem;
+  }
+
+  handleCloseBtnClick() {
+    this.modalElement.remove();
+  }
+
+  attachTo(container) {
+    this.modalElement = this.render();
+    container.append(this.modalElement);
+  }
+}
+
 class TodoItem {
   constructor() {
     this.title = "Placeholder title...";
@@ -24,12 +68,15 @@ class TodoItem {
     return el;
   }
 
+  grabIndexPosition(todoItem) {
+    this.todoItem = todoItem;
+  }
+
   handleClick() {
     this.modalElement.remove();
 
-    let index = todoList.todos.indexOf(todo);
+    let index = todoList.todos.indexOf(this.todoItem);
     todoList.todos.splice(index, 1);
-    console.log(todoList);
   }
 
   attachTo(container) {
@@ -64,45 +111,6 @@ class TodoList {
     } else {
       return results;
     }
-  }
-}
-
-class PopUp {
-  constructor() {
-    this.title = "title";
-    this.content = "content";
-    this.startDate = "startDate";
-    this.endDate = "endDate";
-  }
-
-  render() {
-    let div = document.createElement("div");
-    div.innerHTML = `
-    <div class = "pop-up-container" >
-      <section>
-        <h3>${this.title}</h3>
-          <p>${this.content}</p>
-          <p>${this.startDate} - ${this.endDate}</p>
-          <button class = "close-btn">Close</button>
-      </section>
-    </div>
-      `;
-
-    let el = div.firstElementChild;
-    let deleteBtn = div.querySelector(".close-btn");
-
-    deleteBtn.addEventListener("click", () => this.handleClick());
-
-    return el;
-  }
-
-  handleClick() {
-    this.modalElement.remove();
-  }
-
-  attachTo(container) {
-    this.modalElement = this.render();
-    container.append(this.modalElement);
   }
 }
 
