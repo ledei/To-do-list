@@ -3,16 +3,14 @@
     padding: 0;
 }
 
-.hide{
-    display: none;
-}
 
 .pop-up-container{
     top: 0;
+    left: 0;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.699);
-    height: 100vh;
-    width: 100%;
+    width: 100vw;
+  height: 100vh;
     
 }
 
@@ -20,7 +18,6 @@
     text-align: center;
     color: white;
     width: 20%;
-    height: 20%;
     margin: 20em auto;
     background-color: #0D2236;
     border-radius: 1em;
